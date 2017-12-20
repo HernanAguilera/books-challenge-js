@@ -67,6 +67,7 @@
 </template>
 <script>
 import Book from '@/utils/resources/Book'
+import Notifications from '@/utils/notifications'
 
 export default {
   name: 'book_edit',
@@ -88,10 +89,12 @@ export default {
       let data = this.model
       let promise = Book.put(data._id, data)
       promise.then((response) => {
+        Notifications.success('Los datos han sido actualizados con éxito')
         this.$emit('success')
         this.model = {}
       }, (error) => {
         console.log(error)
+        Notifications.error('Ha ocurrido un error al intentar actualizar los datos')
       })
       this.hideModal()
     },

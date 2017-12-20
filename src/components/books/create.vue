@@ -70,6 +70,7 @@
 </template>
 <script>
 import Book from '@/utils/resources/Book'
+import Notifications from '@/utils/notifications'
 
 export default {
   name: 'book_create',
@@ -90,9 +91,11 @@ export default {
       let data = this.model
       let promise = Book.post(data)
       promise.then((response) => {
+        Notifications.success('Los datos han sido almacenados con éxito')
         this.$emit('success')
       }, (error) => {
         console.log(error)
+        Notifications.error('Ha ocurrido un error al intentar almacenar los datos')
       })
       this.model = {}
     }

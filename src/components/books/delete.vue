@@ -21,6 +21,7 @@
 </template>
 <script>
 import Book from '@/utils/resources/Book'
+import Notifications from '@/utils/notifications'
 
 export default {
   name: 'book-delete',
@@ -29,9 +30,11 @@ export default {
     onDelete () {
       let promise = Book.delete(this.obj._id)
       promise.then((response) => {
+        Notifications.success('Los datos han sido eliminados con éxito')
         this.$emit('success')
       }, (error) => {
         console.error(error)
+        Notifications.error('Ha ocurrido un error al intentar eliminar los datos')
       })
       this.hideModal()
     },

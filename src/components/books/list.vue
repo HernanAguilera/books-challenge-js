@@ -1,6 +1,8 @@
 <template>
   <div>
-    <book-create @success="load" />
+    <div class="text-right" style="margin-bottom: 1em;">
+      <book-create @success="load" />
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>
