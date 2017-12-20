@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
+      <h1>Listado de libros</h1>
       <router-view/>
     </div>
   </div>
