@@ -13,8 +13,8 @@
                 <p>Confirma que desea eliminar: <br> <strong>{{obj.name}}</strong> de <strong>{{obj.author}}</strong></p>
             </div>
         <div class="text-right">
-            <b-btn class="mt-3" @click="hideModal">Cancelar</b-btn>
             <b-btn class="mt-3" variant="danger" @click="onDelete">Aceptar</b-btn>
+            <b-btn class="mt-3" @click="hideModal">Cancelar</b-btn>
         </div>
         </b-modal>
     </div>
