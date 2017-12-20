@@ -1,5 +1,6 @@
 <template>
   <div>
+    <book-create @success="load" />
     <table class="table table-striped">
       <thead>
         <tr>
@@ -24,9 +25,13 @@
 </template>
 <script>
 import Book from '@/utils/resources/Book'
+import BookCreate from './create'
 
 export default {
   name: 'books_list',
+  components: {
+    BookCreate
+  },
   data: () => {
     return {
       books: []
