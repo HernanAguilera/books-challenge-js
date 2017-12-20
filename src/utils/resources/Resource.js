@@ -1,37 +1,35 @@
 import HttpClient from '../http'
-import StorageManager from '../storage'
 
-export default class Resource{
-
-  constructor(endpoint) {
+export default class Resource {
+  constructor (endpoint) {
     this.endpoint = endpoint
   }
 
-  query (data={}){
+  query (data = {}) {
     return HttpClient.get(this.endpoint, {params: data})
   }
 
-  post (data){
+  post (data) {
     return HttpClient.post(this.endpoint, data)
   }
 
-  get (id){
+  get (id) {
     return HttpClient.get(this.withId(id))
   }
 
-  put (id, data){
+  put (id, data) {
     return HttpClient.put(this.withId(id), data)
   }
 
-  patch (id, data){
+  patch (id, data) {
     return HttpClient.patch(this.withId(id), data)
   }
 
-  delete (id){
+  delete (id) {
     return HttpClient.delete(this.withId(id))
   }
 
-  withId (id){
+  withId (id) {
     return `${this.endpoint}${id}/`
   }
 }

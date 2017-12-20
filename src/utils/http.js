@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 class HttpClient {
-
-  constructor() {
+  constructor () {
     this.client = axios.create({
       baseURL: 'http://127.0.0.1:3000/api/'
     })
@@ -37,4 +36,4 @@ class HttpClient {
   }
 }
 
-export default new HttpClient();
+export default new HttpClient()

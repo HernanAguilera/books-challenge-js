@@ -1,7 +1,6 @@
 import Resource from './Resource'
 
-class Book extends Resource{
-
+class Book extends Resource {
   constructor () {
     super('/books/')
   }
