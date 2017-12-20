@@ -14,8 +14,7 @@ miniToastr.setIcon('success', 'i', {
   'class': 'fa fa-arrow-circle-o-down'
 })
 
-export default class Notifications{
-
+export default class Notifications {
   static success (message, title = 'Success') {
     miniToastr.success(message, title)
   }

@@ -29,6 +29,7 @@
 </template>
 <script>
 import Book from '@/utils/resources/Book'
+import Notifications from '@/utils/notifications'
 import BookCreate from './create'
 import BookEdit from './edit'
 import BookDelete from './delete'
@@ -47,11 +48,15 @@ export default {
   },
   methods: {
     load () {
+      this.$store.commit('loading')
       let promise = Book.query()
       promise.then((response) => {
+        this.$store.commit('loaded')
         console.log(response.data)
         this.books = response.data
       }, (error) => {
+        this.$store.commit('loaded')
+        Notifications.error('Ha ocurrido un error al intentar recuperar los elementos')
         console.error(error)
       })
     }

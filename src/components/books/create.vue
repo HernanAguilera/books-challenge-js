@@ -88,12 +88,15 @@ export default {
       this.$refs.myModalRef.hide()
     },
     onSubmit () {
+      this.$store.commit('loading')
       let data = this.model
       let promise = Book.post(data)
       promise.then((response) => {
+        this.$store.commit('loaded')
         Notifications.success('Los datos han sido almacenados con éxito')
         this.$emit('success')
       }, (error) => {
+        this.$store.commit('loaded')
         console.log(error)
         Notifications.error('Ha ocurrido un error al intentar almacenar los datos')
       })

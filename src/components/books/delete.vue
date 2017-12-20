@@ -28,11 +28,14 @@ export default {
   props: ['obj'],
   methods: {
     onDelete () {
+      this.$store.commit('loading')
       let promise = Book.delete(this.obj._id)
       promise.then((response) => {
+        this.$store.commit('loaded')
         Notifications.success('Los datos han sido eliminados con éxito')
         this.$emit('success')
       }, (error) => {
+        this.$store.commit('loaded')
         console.error(error)
         Notifications.error('Ha ocurrido un error al intentar eliminar los datos')
       })
