@@ -17,7 +17,9 @@
           <td>{{book.author}}</td>
           <td>{{book.genre}}</td>
           <td>{{book.isbn}}</td>
-          <td></td>
+          <td>
+            <book-delete @success="load" :obj="book" />
+          </td>
         </tr>
       </tbody>
     </table>
@@ -26,11 +28,13 @@
 <script>
 import Book from '@/utils/resources/Book'
 import BookCreate from './create'
+import BookDelete from './delete'
 
 export default {
   name: 'books_list',
   components: {
-    BookCreate
+    BookCreate,
+    BookDelete
   },
   data: () => {
     return {
